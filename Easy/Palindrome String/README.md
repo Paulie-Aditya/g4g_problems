@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/palindrome-string0817/0">Palindrome String</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a string <strong>S</strong>, check if it is palindrome or not.</span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/palindrome-string0817/1">Palindrome String</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a string <strong>S</strong>, check if it is palindrome or not.</span></p>
 <p><span style="font-size: 18px;"><strong>Example 1:</strong></span></p>
 <pre><span style="font-size: 18px;"><strong>Input:</strong> S = "abba"
 <strong>Output:</strong> 1
