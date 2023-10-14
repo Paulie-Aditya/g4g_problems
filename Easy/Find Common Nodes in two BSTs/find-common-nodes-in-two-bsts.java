@@ -23,27 +23,49 @@ class Node{
 
 class Solution
 {
-    void inorder(Node root,Map<Integer,Integer> map){
-        if(root==null)return;
-        inorder(root.left,map);
-        map.put(root.data,1);
-        inorder(root.right,map);
-    }
-    void helper(Node root,Map<Integer,Integer> map,ArrayList<Integer> ans){
-        if(root==null)return;
-        helper(root.left,map,ans);
-        if(map.containsKey(root.data)){
-            ans.add(root.data);
+    //Function to find the nodes that are common in both BST.
+    
+    public static void inorder(Node root, List<Integer> b){
+        if(root == null){
+            return;
         }
-        helper(root.right,map,ans);
+        inorder(root.left, b);
+        b.add(root.data);
+        inorder(root.right, b);
     }
-     ArrayList<Integer> findCommon(Node root1,Node root2)
+    
+    public static boolean search(Node root,int x){
+        if(root == null){
+            return false;
+        }
+        
+        if(root.data == x){
+            return true;
+        }
+        else if(root.data > x){
+            return search(root.left,x);
+        }
+        else if(root.data < x){
+            return search(root.right, x);
+        }
+        return false;
+    }
+	public static ArrayList<Integer> findCommon(Node root1,Node root2)
     {
-     Map<Integer,Integer> map = new TreeMap<>();
-     ArrayList<Integer> arr = new ArrayList<>();
-     inorder(root1,map);
-     helper(root2,map,arr);
-     return arr;
+        //code here
+        ArrayList <Integer> ans = new ArrayList<>();
+        ArrayList <Integer> b1 = new ArrayList<>();
+        ArrayList <Integer> b2 = new ArrayList<>();
+        inorder(root1,b1);
+        
+        for(int i = 0; i<b1.size(); i++){
+            if(search(root2,b1.get(i))){
+                ans.add(b1.get(i));
+            }
+        }
+        
+        return ans;
+        
     }
 }
 
