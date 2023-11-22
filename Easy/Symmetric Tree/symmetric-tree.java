@@ -112,8 +112,6 @@ class Tree {
 // } Driver Code Ends
 
 
-
-
 /*
 class of the node of the tree is as
 class Node{
@@ -131,18 +129,25 @@ class Node{
 // complete this function
 // return true/false if the is Symmetric or not
 class GfG
-{   
-    private static Boolean isSymmetricUtil(Node root1, Node root2) {
-        if (root1 == null && root2 == null) return true;
-        if (root1 == null || root2 == null) return false;
-        if (root1.data != root2.data) return false;
-        else return isSymmetricUtil(root1.left, root2.right) && isSymmetricUtil(root1.right, root2.left);
-    }
-    
+{
     // return true/false denoting whether the tree is Symmetric or not
+    public static boolean symmetrical(Node root1, Node root2){
+        if(root1 == null && root2 == null){
+            return true;
+        }
+        if(root1 == null || root2 == null){
+            return false;
+        }
+        if(root1.data == root2.data){
+            return symmetrical(root1.left, root2.right) && symmetrical(root1.right, root2.left);
+        }
+        else{
+            return false;
+        }
+    }
     public static boolean isSymmetric(Node root)
     {
         // add your code here;
-        return isSymmetricUtil(root, root);
+        return symmetrical(root,root);
     }
 }
