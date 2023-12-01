@@ -118,7 +118,6 @@ class Solution
         ArrayList<Integer> to_check = new ArrayList<>();
         traverse(root,res,to_check);
         res.add(0);
-        //Collections.sort(res);
         
         for(int i = 0; i<to_check.size(); i++){
             int temp = to_check.get(i);
@@ -126,9 +125,5 @@ class Solution
                 return true;
         }
         return false;
-        // for(int i = 0; i<res.size(); i++){
-        //     System.out.println(res.get(i));
-        // }
-        // return false;
     }
 }
