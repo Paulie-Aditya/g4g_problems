@@ -34,44 +34,48 @@ class Node
 
 class Solution
 {
-    public static void traverse(Node root, HashSet<Integer> set){
+    public static void traverse(Node root, ArrayList<Integer> l){
         if(root == null){
             return;
         }
         
-        set.add(root.data);
-        traverse(root.left, set);
-        traverse(root.right, set);
+        
+        traverse(root.left, l);
+        l.add(root.data);
+        traverse(root.right, l);
         
     }
     
 	public static int countPairs(Node root1, Node root2, int x)
 	{
-		// Code here
-		HashSet<Integer> set1 = new HashSet<>();
-		HashSet<Integer> set2 = new HashSet<>();
+		ArrayList<Integer> l1 = new ArrayList<>();
+		ArrayList<Integer> l2 = new ArrayList<>();
+	
 		
-		traverse(root1, set1);
-		traverse(root2, set2);
+		traverse(root1, l1);
+		traverse(root2, l2);
 		
 		int count =0;
-		for(int curr: set1){
-		    if(set2.contains(x-curr)){
+		
+		int i = 0;
+		int j = l2.size() -1;
+		
+		while(i< l1.size() && j>=0){
+		    if((l1.get(i) + l2.get(j)) == x){
+		        i++;
 		        count++;
+		        
+		    }
+		    else if((l1.get(i) + l2.get(j)) > x){
+		        j--;
+		    }
+		    else if((l1.get(i) + l2.get(j)) < x){
+		        i++;
 		    }
 		}
-// 		for(int i =0; i<l1.size(); i++){
-// 		    int curr = l1.get(i);
-// 		    if (l2.indexOf(x-curr) != -1){
-// 		        count++;
-// 		        //System.out.println(curr);
-// 		    }
-// 		}
+		
 		
 		return count;
-		
-		
-		
 		
 		
 	}
