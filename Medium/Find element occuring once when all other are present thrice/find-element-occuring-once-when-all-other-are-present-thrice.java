@@ -30,20 +30,33 @@ class GFG {
 //User function Template for Java
 
 class Solution {
-    static int singleElement(int[] arr , int n) {
+    static int singleElement(int[] arr , int N) {
         // code here
-        HashMap<Integer, Integer> map = new HashMap<>();
         
-        for(int i = 0; i<n; i++){
-            map.put(arr[i], map.getOrDefault(arr[i],0)+1);
+        if(N == 1){
+            return arr[0];
         }
         
-        for(Map.Entry<Integer, Integer> set: map.entrySet()){
-            if(set.getValue() == 1){
-                return set.getKey();
+        Arrays.sort(arr);
+        for(int i = 0; i<N-2; i++){
+            if(arr[i] != arr[i+1] && arr[i+1] != arr[i+2]){
+                return arr[i+1];
+            }
+            else if(arr[i] != arr[i+1] || arr[i+1] != arr[i+2]){
+                if(arr[i] != arr[i+1]){
+                    if(i == 0){
+                        return arr[i];
+                    }
+                }
+                else if(arr[i+1] != arr[i+2]){
+                    
+                    if(i+2 == N-1){
+                        return arr[i+2];
+                    }
+                    
+                }
             }
         }
-        
         return -1;
     }
 }
