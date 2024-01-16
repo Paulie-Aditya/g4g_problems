@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/count-leaves-in-binary-tree/1?page=2&category[]=Tree&sortBy=submissions">Count Leaves in Binary Tree</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a Binary Tree of size <strong>N</strong>, You have to count leaves in it. For example, there are two leaves in following&nbsp;tree</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/count-leaves-in-binary-tree/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article">Count Leaves in Binary Tree</a></h2><h3>Difficulty Level : Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a Binary Tree of size <strong>N</strong>, You have to count leaves in it. For example, there are two leaves in following&nbsp;tree</span></p>
 
 <p><span style="font-size:18px">&nbsp; &nbsp; &nbsp; &nbsp; 1<br>
 &nbsp; &nbsp;&nbsp; /&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \<br>
