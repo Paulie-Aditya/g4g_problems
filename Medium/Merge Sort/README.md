@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/merge-sort/1?page=2&status[]=unsolved&sprint=a663236c31453b969852f9ea22507634&sortBy=submissions">Merge Sort</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array arr[], its starting position l and its ending position r. Sort the array using merge sort algorithm.</span><br>
+<h2><a href="https://www.geeksforgeeks.org/problems/merge-sort/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article">Merge Sort</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array arr[], its starting position l and its ending position r. Sort the array using merge sort algorithm.</span><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
 <pre><span style="font-size:18px"><strong>Input:</strong>
