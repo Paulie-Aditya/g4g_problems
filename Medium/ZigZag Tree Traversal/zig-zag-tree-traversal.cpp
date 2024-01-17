@@ -103,63 +103,43 @@ struct Node {
 class Solution{
     public:
     //Function to store the zig zag order traversal of tree in a list.
-    vector<vector<int>> levelOrder(Node* root){
-        
-        queue<Node*>q;
-        vector<vector<int>> res;
-        vector<int>curr;
-        
-        q.push(root);
-        q.push(NULL);
-        
-        while(!q.empty()){
-            Node* temp = q.front();
-            q.pop();
-            
-            if(temp == NULL){
-                res.push_back(curr);
-                curr.clear();
-                if(!q.empty()){
-                    q.push(NULL);
-                }
-            }
-            else{
-                curr.push_back(temp->data);
-                
-                if(temp->left){
-                    q.push(temp->left);
-                }
-                if(temp -> right){
-                    q.push(temp->right);
-                }
-            }
-        }
-        
-        return res;
-        
-    }
     vector <int> zigZagTraversal(Node* root)
     {
     	// Code here
-    	
-    	// level order and then reverse the odd index ones
-    	vector<vector<int>> res = levelOrder(root);
-    	vector<int> ans;
-    	
-    	for(int i = 0; i< res.size(); i++){
-    	    if(i%2 != 0){
-    	        for(int j = res[i].size()-1; j>=0; j--){
-    	            ans.push_back(res[i][j]);
-    	        }
-    	    }
-    	    else{
-    	        for(int j = 0; j< res[i].size(); j++){
-    	            ans.push_back(res[i][j]);
-    	        }
-    	    }
+    	vector<int> res;
+    	if(root == NULL){
+    	    return res;
     	}
+    	queue<Node*> q;
     	
-    	return ans;
+    	q.push(root);
+    	bool leftToRight = true;
+    	
+    	while(!q.empty()){
+    	    int size = q.size();
+    	    vector<int> ans(size);
+    	    
+    	    for(int i = 0; i< size; i++){
+    	        Node* frontNode = q.front();
+    	        q.pop();
+    	        int index = leftToRight ? i: size- i -1;
+    	        ans[index] = frontNode -> data;
+    	        
+    	        if(frontNode ->left){
+    	            q.push(frontNode->left);
+    	        }
+    	        if(frontNode -> right){
+    	            q.push(frontNode ->right);
+    	        }
+    	        
+    	    }
+    	    leftToRight = !leftToRight;
+    	    for(auto i: ans){
+    	        res.push_back(i);
+    	    }
+    	    
+    	}
+    	return res;
     }
 };
 
