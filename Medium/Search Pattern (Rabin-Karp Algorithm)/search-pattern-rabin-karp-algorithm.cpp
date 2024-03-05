@@ -4,41 +4,23 @@ using namespace std;
 
 
 // } Driver Code Ends
+
+
 class Solution
 {
     public:
-        vector <int> search(string pat, string txt)
+        vector <int> search(string pattern, string text)
         {
-            //code here.
-            int n = txt.size();
-            int m = pat.size();
-            vector<int> res;
-            int i = 0;
-            
-            while(i+m-1 < n){
-                if(txt[i] == pat[0]){
-                    bool flag = true;
-                    for(int j = 0; j<m; j++){
-                        if(txt[i+j] != pat[j]){
-                            flag = false;
-                            break;
-                        }
-                    }
-                    if(flag){
-                        res.push_back(i+1);
-                    }
-                    i++;
-                }
-                else{
-                    i++;
+            int m=pattern.size();
+            int n=text.size();
+            vector<int>ans;
+            for(int i=0;i<=n-m;i++){
+                string k=text.substr(i,m);
+                if(k==pattern){
+                    ans.push_back(i+1);
                 }
             }
-            
-            if(res.size() == 0){
-                res.push_back(-1);
-                return res;
-            }
-            return res;
+            return ans;
         }
      
 };
