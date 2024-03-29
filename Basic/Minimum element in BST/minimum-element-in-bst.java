@@ -1,15 +1,16 @@
 //{ Driver Code Starts
 // Initial Template for Java
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.io.*;
 import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class Node {
     int data;
     Node left;
     Node right;
+
     Node(int data) {
         this.data = data;
         left = null;
@@ -74,6 +75,7 @@ class GfG {
 
         return root;
     }
+
     static void printInorder(Node root) {
         if (root == null) return;
 
@@ -84,15 +86,14 @@ class GfG {
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br =
-            new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int t = Integer.parseInt(br.readLine());
 
         while (t > 0) {
             String s = br.readLine();
             Node root = buildTree(s);
-            Tree g = new Tree();
+            Solution g = new Solution();
             System.out.println(g.minValue(root));
             t--;
         }
@@ -101,31 +102,27 @@ class GfG {
 
 // } Driver Code Ends
 
-
-
-
-/*
-class Node {
-    int data;
-    Node left;
-    Node right;
-    Node(int data) {
-        this.data = data;
-        left = null;
-        right = null;
-    }
-}
-*/
-class Tree {
+class Solution {
     // Function to find the minimum element in the given BST.
-    int minValue(Node node) {
-        if(node == null){
-            return -1;
+    int minValue(Node root) {
+        // code here
+        int n1,n2;
+        
+        if(root.left==null && root.right==null)
+            return root.data;
+        else if(root.left==null){
+            n1=root.data;
+            n2=minValue(root.right);
+        }else if(root.right==null){
+            n1=minValue(root.left);
+            n2=root.data;
+        }else{
+            n1=minValue(root.left);
+            n2=minValue(root.right);
         }
-        while(node.left != null){
-            node = node.left;
-        }
-        return node.data;
+        
+        
+        return Math.min(n1,n2);
         
     }
 }
