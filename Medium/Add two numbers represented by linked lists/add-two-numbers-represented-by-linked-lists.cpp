@@ -60,6 +60,17 @@ struct Node {
 class Solution
 {
     public:
+    struct Node* reverse(struct Node* head){
+        Node* curr = head;
+        Node* prev = NULL;
+        while(curr!= NULL){
+            Node* next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
     //Function to add two numbers represented by linked list.
     struct Node* addTwoLists(struct Node* first, struct Node* second)
     {
@@ -71,30 +82,12 @@ class Solution
             return first;
         }
         
-        Node* curr1 = first;
-        Node* prev1 = NULL;
-        while(curr1 != NULL){
-            Node* next = curr1->next;
-            curr1->next = prev1;
-            prev1 = curr1;
-            curr1 = next;
-        }
-        
-        Node* head1 = prev1;
-        
-        Node* curr2 = second;
-        Node* prev2 = NULL;
-        while(curr2 != NULL){
-            Node* next = curr2->next;
-            curr2->next = prev2;
-            prev2 = curr2;
-            curr2 = next;
-        }
-        Node* head2 = prev2;
+        Node* head1 = reverse(first);
+        Node* head2 = reverse(second);
         
         
-        curr1 = head1;
-        curr2 = head2;
+        Node* curr1 = head1;
+        Node* curr2 = head2;
         
         
         int carry = 0;
@@ -143,15 +136,11 @@ class Solution
         }
         
         head = head->next;
-        Node* curr = head;
-        Node* prev = NULL;
-        while(curr!= NULL){
-            Node* next = curr->next;
-            curr->next = prev;
-            prev= curr;
-            curr = next;
-        }
-        return prev;
+        head = reverse(head);
+        
+        while(head->next != NULL && head->data == 0)
+            head = head->next;
+        return head;
     }
 };
 
@@ -167,12 +156,12 @@ int main()
         int n, m;
         
         cin>>n;
-        Node* first = buildList(n);
+        Node* num1 = buildList(n);
         
         cin>>m;
-        Node* second = buildList(m);
+        Node* num2 = buildList(m);
         Solution ob;
-        Node* res = ob.addTwoLists(first,second);
+        Node* res = ob.addTwoLists(num1,num2);
         printList(res);
     }
     return 0;
